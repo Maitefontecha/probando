@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "IRONTEC"
+    }
+  },
+  "defaultProject": "IRONTEC",
+  "cli": {
+    "analytics": "f2e7243a-a019-4954-8e6c-f569cc78c74e"
+  }
 }

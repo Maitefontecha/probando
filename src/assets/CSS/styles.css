@@ -1,0 +1,648 @@
+html{
+    box-sizing: border-box;
+    /*cuando tenemos un boton x ejemplo, añadimos el ancho de 10px, si ponemos padding de 5, entonces
+    el ancho total queda como 5px + 10px+5px. Para evitar esto, border-box, te deja por defecto 10px de ancho*/
+    font-size:62.5%; /*Reset para rems -62.5%=10px de 16px*/
+
+}
+.rk-main {
+  z-index: 1;
+  position: static;
+}
+
+.animated {
+  -webkit-animation-duration: 0.6s;
+  animation-duration: 0.6s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@media (prefers-reduced-motion) {
+  .animated {
+    -webkit-animation: unset !important;
+    animation: unset !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+from {
+  opacity: 0;
+}
+
+to {
+  opacity: 1;
+}
+}
+
+.fadeIn {
+-webkit-animation-name: fadeIn;
+animation-name: fadeIn;
+}
+
+
+body{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+img
+{
+    max-width: 100%;
+    /*asi conseguimos que las imagenes se ajusten al tamñao de la pagina*/
+}
+
+
+
+/*COntenedor, centrar contenido*/
+.contenedor
+{
+    max-width: 120rem;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    /*margin: arriba, derecha, abajo , izquiera es lo mismo que arriba*/
+    margin: 0 auto 0 auto;
+    
+
+}
+.fw-300
+{
+    font-weight: 300;
+}
+.centrar-texto
+{
+    text-align: center;
+}
+.d-block
+{
+    display:block!important;
+    /*aplica este, auqnue haya mas abajo otro display, lo ignora*/
+}
+
+
+h1{
+
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 3.4rem;
+}
+h3{
+    font-size: 3rem;
+}
+h4{
+    font-size: 2.6rem;
+}
+.seccion
+{
+    
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contenido-header
+{
+    height: 100%; /*para que coja todo el espacio. al ser un hijo del header principal no coge todo pero queremos que si*/
+    display:flex;
+    /*flex-direction: row; /*en fila*, row-reverse, fila inversa!*/
+    flex-direction: column;
+    justify-content: space-between;
+    align-content:center;
+}
+.contenido-header h1{
+    color:black;
+    padding-bottom: 3rem;
+    max-width: 60rem;
+    line-height: 2;
+}
+.barra{
+    display:flex;
+    /*esto te coge las principales: nav etc*/
+    justify-content: space-between; /*uno derecha y otro izquierda. los principales horizontalmente*/
+    align-content: center;
+    /*si quisieramos verticalmente: align-content: a la misma altural center.*/
+    padding-top:30px; /*margen de arriba*/
+}
+
+
+/*selecciono hijos de la clase*/
+.navegacion a
+{
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none; /* no pone la linea de debajo de los links*/
+    font-size:2rem;
+    margin-right: 2rem; /*separación de cada uno*/
+    color:black; /*FFfFFF* o color:rgba(255,255,255,.3) el .3 por ejemplo le da más transparenia la ultima. 1 solido*/
+}
+/*al poner margin-right todos los elementos tienen margin, pero al ultimo queda mal por eso:*/
+/*si quiesieramos el primero first-of-type*/
+.navegacion a.last-of-type
+{
+    margin-right: 0;
+}
+/*lo siguinete da color al clicar o al pasar por ese link*/
+.navegacion a:hover{
+    color:red;
+}
+
+
+/*header*/
+.site-header.inicio {
+    background: url(../foto/robot.jpg);
+    background-position: center center;
+    background-size: cover;
+    /*esto guarda limites*/
+    height:100vh;
+    min-height: 60rem;
+}
+.encabezado-nosotros
+{
+    font-weight: 600;
+    text-align:  center;
+    
+}
+.iconos-nosotros
+{
+    display: flex;
+   /* justify-content: space-between;    /* */
+  
+}
+
+.icono{
+    /*flex-basis:200px; /* es igual que witdh:200px, solo que al usar flex se pone esto, asi todos tienen el mismo ancho*/
+    /* pero es mejor usar porcentajes*/
+    /*flex-basis:33%;*/
+    flex-basis:33.3%;
+    /*margin-left: 2rem;/**/
+    
+   
+    
+}
+.icono h3
+{
+    text-transform: uppercase;
+    display:flex;
+    justify-content: space-between;
+    margin-left: 7rem;
+    /*text-align: center;*/
+}
+.icono img{
+    /*margin-left: 10rem;*/
+    display:flex;
+    justify-content: space-between;
+    margin-left: 7rem;
+    
+}
+
+
+
+.contenedor-anuncios
+{
+    display:flex;
+    justify-content: space-between;
+    
+
+}
+.anuncio{
+    margin-left: 2rem;
+    flex-basis:calc(33.3%-1rem);
+    /*vamos a ponerles un borde gris*/
+    border-style:solid;
+    border-color: #B5B5B5;
+    border-width: 1px ;
+    /*border: witdh style color*/
+    background-color: #F5F5F5;
+    
+
+
+}
+.anuncio img{
+    margin-left: 4rem;
+    width: 300px;
+    height: 200px;
+}
+
+.contenido-anuncio
+{
+    padding:2rem;
+    /*padding-left, -right, -top, bottom*/
+    /*padding: 4rem 2rem 4rem 1 rem , top, right, bottom y left*/
+}
+.contenido-anuncio h3,.contenido-anuncio p{
+    margin:0;
+}
+.precio
+{
+    color:#71B100;
+    font-weight: 700;
+}
+.boton
+{
+    color:white;
+    font-weight: 700;
+    text-decoration:none;
+    font-size:1.8rem;
+    padding:1rem 3rem;
+    margin-top:3rem;
+    /*width:10rem; /* si NO PONGO LA SIGUIENTE linea, NO cambia! tporque por defecto está por  display:inline, tenemos que ponerle block*/
+    /*display:block;/*si pongo tambien mcogeria margin si le pongo, coge todo tod el rango*/
+    display: inline-block;
+    text-align: center;
+
+}
+
+.boton-amarillo
+{
+    margin-top: 20px;
+    background-color: #E08709;
+   /* display: block;*/
+}
+.boton-verde
+{
+    Background-color: #71B100;
+}
+.ver-todas
+{
+ display:flex;
+ justify-content: flex-end; 
+ /*margin-right:7rem;*/  
+}
+.imagen-contacto
+{
+    background-image: url(../img/encuentra.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 40rem;
+    display:flex;
+    align-items: center;
+}
+.contenido-contacto
+{
+    flex:1; /*esto calcula cuanto pixeles hay disponibles y mira cuantos elementos hay
+    por ejemplo, si hay 1000 pixeles y 2 elementos, 500 px para cada*/
+    color:white;
+    
+}
+
+.contenido-contacto p
+{
+    font-size: 1.8rem   ;
+}
+.iconos-caracteristica{
+    list-style:none;/*quita los puntos de defecto*/
+    padding:0;
+    display:flex;
+    justify-content: space-evenly; /* si no quitas flex:1 no hace nda!*/
+}
+.iconos-caracteristica li{
+    flex:1;
+    display:flex; /*asi hacen q la imagen y el texto se coloquen al mismo nivel*/
+}
+.iconos-caracteristica li img{
+    margin-right: 2rem;
+}
+.seccion-inferior
+{
+   
+  display:flex;
+ 
+  /*flex-direction: row;*/
+  justify-content: space-between;
+  
+}
+.seccion-inferior .blog
+{
+   
+    flex-basis:70%;
+    
+}
+.seccion-inferior .testimoniales
+{
+    flex-basis:calc(30%-2rem);
+}
+.entrada-blog
+{
+    display:flex;
+    justify-content: space-between;
+    align-content: inherit; 
+}
+.entrada-blog .imagen{
+    margin:auto;
+   
+    flex-basis:60%;
+
+}
+.entrada-blog .texto-entrada{
+    flex-basis: calc(40%-3rem);
+
+}
+
+
+.ae-container:before,
+.ae-container-fluid:before,
+.ae-container:after,
+.ae-container-fluid:after {
+  content: " ";
+  display: table;
+}
+
+.ae-container:after,
+.ae-container-fluid:after {
+  clear: both;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.ae-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+@media (min-width: 40em) {
+  .ae-container {
+    max-width: 40rem;
+  }
+}
+@media (min-width: 52em) {
+  .ae-container {
+    max-width: 48.75rem;
+  }
+}
+@media (min-width: 64em) {
+  .ae-container {
+    max-width: 62rem;
+  }
+}
+@media (min-width: 75em) {
+  .ae-container {
+    max-width: 72.25rem;
+  }
+}
+
+.ae-container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 40em) {
+  .ae-container-fluid {
+    max-width: 88.88889em;
+    width: 95vw;
+  }
+  .ae-container-fluid--inner {
+    max-width: 68.88889em;
+    width: 82vw;
+  }
+}
+.ae-container-fluid--full {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+@media (max-width: 63.99em) {
+  .ae-container-fluid {
+    padding-left: .25rem;
+    padding-right: .25rem;
+  }
+}
+
+.ae-grid {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-left: -.25rem;
+  margin-right: -.25rem;
+}
+
+.ae-grid__item {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  min-height: 1px;
+  padding-left: .25rem;
+  padding-right: .25rem;
+  position: relative;
+}
+
+.item-xs--auto {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+
+
+.ae-kappa {
+  font-size: 1rem;
+}
+
+
+.au-xs-ta-center {
+  text-align: center;
+}
+.au-mb-4 {
+  margin-bottom: 4rem;
+}
+
+
+.item-lg-4 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 33.33333%;
+      -ms-flex: 0 0 33.33333%;
+          flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+}
+.ae-u-bolder {
+  font-weight: 700;
+}
+.au-mb-3 {
+  margin-bottom: 2rem;
+}
+.au-mt-2 {
+  margin-top: 1rem;
+}
+
+.au-clearfix:after,
+.au-clearfix:before {
+  content: " ";
+  display: table;
+}
+
+.au-clearfix:after {
+  clear: both;
+}
+
+.au-xs-ta-left {
+  text-align: left;
+}
+
+.au-xs-ta-right {
+  text-align: right;
+}
+
+.au-xs-ta-center {
+  text-align: center;
+}
+
+.au-xs-ta-justify {
+  text-align: justify;
+}
+au-xs-ta-center {
+  text-align: center;
+}
+
+.au-xs-ta-justify {
+  text-align: justify;
+}
+
+@media (min-width: 40em) {
+  .au-sm-ta-left {
+    text-align: left;
+  }
+  .au-sm-ta-right {
+    text-align: right;
+  }
+  .au-sm-ta-center {
+    text-align: center;
+  }
+  .au-sm-ta-justify {
+    text-align: justify;
+  }
+}
+
+@media (min-width: 52em) {
+  .au-md-ta-left {
+    text-align: left;
+  }
+  .au-md-ta-right {
+    text-align: right;
+  }
+  .au-md-ta-center {
+    text-align: center;
+  }
+  .au-md-ta-justify {
+    text-align: justify;
+  }
+}
+
+@media (min-width: 64em) {
+  .au-lg-ta-left {
+    text-align: left;
+  }
+  .au-lg-ta-right {
+    text-align: right;
+  }
+  .au-lg-ta-center {
+    text-align: center;
+  }
+  .au-lg-ta-justify {
+    text-align: justify;
+  }
+}
+
+@media (min-width: 75em) {
+  .au-xl-ta-left {
+    text-align: left;
+  }
+  .au-xl-ta-right {
+    text-align: right;
+  }
+  .au-xl-ta-center {
+    text-align: center;
+  }
+  .au-xl-ta-justify {
+    text-align: justify;
+  }
+}
+
+
+@media (min-width: 40em) {
+  .au-sm-ta-left {
+    text-align: left;
+  }
+  .au-sm-ta-right {
+    text-align: right;
+  }
+  .au-sm-ta-center {
+    text-align: center;
+  }
+  .au-sm-ta-justify {
+    text-align: justify;
+  }
+}
+
+@media (min-width: 52em) {
+  .au-md-ta-left {
+    text-align: left;
+  }
+  .au-md-ta-right {
+    text-align: right;
+  }
+  .au-md-ta-center {
+    text-align: center;
+  }
+  .au-md-ta-justify {
+    text-align: justify;
+  }
+}
+
+@media (min-width: 64em) {
+  .au-lg-ta-left {
+    text-align: left;
+  }
+  .au-lg-ta-right {
+    text-align: right;
+  }
+  .au-lg-ta-center {
+    text-align: center;
+  }
+  .au-lg-ta-justify {
+    text-align: justify;
+  }
+}
+
+@media (min-width: 75em) {
+  .au-xl-ta-left {
+    text-align: left;
+  }
+  .au-xl-ta-right {
+    text-align: right;
+  }
+  .au-xl-ta-center {
+    text-align: center;
+  }
+  .au-xl-ta-justify {
+    text-align: justify;
+  }
+}
+.au-pl-4 {
+  padding-left: 4rem;
+}  
+.au-pr-4 {
+  padding-right: 4rem;
+}
